@@ -26,15 +26,15 @@ let isPlaying = false;
 
 // Create a button for mobile devices
 const startButton = document.createElement('button');
-startButton.textContent = 'Start Visualizer';
+startButton.textContent = 'TAP TO START';
 startButton.style.position = 'fixed';
 startButton.style.top = '50%';
 startButton.style.left = '50%';
 startButton.style.transform = 'translate(-50%, -50%)';
 startButton.style.padding = '15px 30px';
 startButton.style.fontSize = '18px';
-startButton.style.backgroundColor = '#A9A9A9';
-startButton.style.color = 'black';
+startButton.style.backgroundColor = 'transparent';
+startButton.style.color = 'white';
 startButton.style.border = 'none';
 startButton.style.borderRadius = '15px';
 startButton.style.cursor = 'pointer';
