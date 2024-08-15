@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSIC VISUALISER V3</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        #fibonacci-container {
+            width: 100%;
+            height: 100%;
+            cursor: none; /* This hides the cursor when it hovers over the container */
+        }
+    </style>
+</head>
+<body>
+    <svg id="fibonacci-container"></svg>
+    <video id="video" style="display: none;"></video> <!-- Hidden video element for hand tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+    <script src="script.js"></script>
+</body>
+</html>
