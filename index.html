@@ -18,9 +18,50 @@
             height: 100%;
             cursor: none; /* This hides the cursor when it hovers over the container */
         }
+        .watermark-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .watermark {
+            opacity: 0.2;
+            max-height: 95vh;
+        }
     </style>
 </head>
 <body>
+    <div class="watermark-container">
+        <img class="watermark" src="WATERMARK_2.svg" alt="Watermark">
+    </div>
+    <script>
+        // Prevent default touch behaviors
+        document.addEventListener('touchmove', function(event) {
+            if (event.scale !== 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('gesturestart', function(event) {
+            event.preventDefault();
+        });
+
+        // Prevent zooming on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
     <svg id="fibonacci-container"></svg>
     <video id="video" style="display: none;"></video> <!-- Hidden video element for hand tracking -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
